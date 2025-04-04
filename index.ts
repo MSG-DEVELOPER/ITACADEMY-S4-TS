@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded",get_joke);
 boton.addEventListener("click",get_joke);
 
 interface objAcudit {
-    joke:String;
+    joke:string;
     score:number;
 }
 
@@ -28,7 +28,7 @@ async function get_joke() {
     }
 }
 
-function actualiza_array(broma:String){
+function actualiza_array(broma:string){
 reportAcudits.push({joke:broma,score:1});
 console.log(reportAcudits);
 }
