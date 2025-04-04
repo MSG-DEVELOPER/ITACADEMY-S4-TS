@@ -12,6 +12,7 @@ const chiste = document.getElementById("chiste");
 const boton = document.getElementById("boton");
 document.addEventListener("DOMContentLoaded", get_joke);
 boton.addEventListener("click", get_joke);
+const reportAcudits = [];
 function get_joke() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -23,9 +24,14 @@ function get_joke() {
             const joke = yield data.json();
             chiste.textContent = joke.joke;
             console.log(joke.joke);
+            actualiza_array(joke.joke);
         }
         catch (er) {
             console.log("error en la conexión", er);
         }
     });
+}
+function actualiza_array(broma) {
+    reportAcudits.push({ joke: broma, score: 1 });
+    console.log(reportAcudits);
 }
