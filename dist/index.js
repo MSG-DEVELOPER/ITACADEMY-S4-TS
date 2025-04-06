@@ -13,7 +13,6 @@ const boton = document.getElementById("boton");
 const botonTresPuntos = document.getElementById("botonTresPuntos");
 const botonDosPuntos = document.getElementById("botonDosPuntos");
 const botonUnPuntos = document.getElementById("botonUnPuntos");
-//document.addEventListener("DOMContentLoaded",get_joke);
 boton.addEventListener("click", get_joke);
 botonTresPuntos.addEventListener("click", () => puntua_chiste(3));
 botonDosPuntos.addEventListener("click", () => puntua_chiste(2));
