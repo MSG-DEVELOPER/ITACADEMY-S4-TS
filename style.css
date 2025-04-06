@@ -1,0 +1,59 @@
+body {
+    height: 100vh;
+    background-image: url("./img/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px black;
+    background-color: beige;
+    opacity: 0.75;
+    padding: 2rem;
+   
+}
+
+#boton {
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: blueviolet;
+    font-size: 1rem;
+    color: blanchedalmond;
+    transition: 0.8s;
+    
+}
+
+#boton:hover {
+    transform: scale(1.05);
+    background-color: blue;
+}
+
+.botonesPonerNota{
+    display: flex;
+    gap: 1rem; /* Puedes ajustar el espacio (1rem ≈ 16px) */
+    margin-top: 1rem; /* Opcional: separa de lo que hay arriba */
+    justify-content: center;
+}
+
+#clima {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    font-size: 1rem;
+    color: white;
+  }
+  
