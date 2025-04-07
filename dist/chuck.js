@@ -9,13 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const url = "https://api.chucknorris.io/jokes/random";
-obten_chuck();
+//obten_chuck();
 function obten_chuck() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const data = yield fetch(url);
             const chiste = yield data.json();
             console.log(chiste.value);
+            return chiste.value;
         }
         catch (er) {
             console.log("Chuck no está de humor... ", er);
