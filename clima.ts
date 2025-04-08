@@ -1,5 +1,9 @@
+//import dotenv from 'dotenv';
+//dotenv.config();
+
+
 const clima=document.getElementById("clima")!;
-let TU_API_KEY="f8f9fc72c29078e5fd330dc83c7ee6ca"
+const TU_API_KEY="f8f9fc72c29078e5fd330dc83c7ee6ca";
 
 muestra_clima();
 
