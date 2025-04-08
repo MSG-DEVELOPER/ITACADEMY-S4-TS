@@ -8,10 +8,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-let jokeScore = 0;
+let puntosBroma = 0;
 // Tu código...
 const url = "https://icanhazdadjoke.com/";
-function get_joke(reportAcudits) {
+function obten_broma_prpal(reportAcudits) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const data = yield fetch(url, {
@@ -37,8 +37,8 @@ function mostrar_chiste(joke) {
 function actualiza_array(broma, reportAcudits) {
     let fecha = new Date();
     let fechaISO = fecha.toISOString();
-    reportAcudits.push({ joke: broma, score: jokeScore, date: fechaISO });
+    reportAcudits.push({ joke: broma, score: puntosBroma, date: fechaISO });
     console.log(reportAcudits);
 }
 // Exporta las funciones necesarias
-export { get_joke, mostrar_chiste, actualiza_array };
+export { obten_broma_prpal, mostrar_chiste, actualiza_array };

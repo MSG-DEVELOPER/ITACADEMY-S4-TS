@@ -5,13 +5,13 @@
 // Esta es la URL de la API
 // api.ts
 import { objAcudit } from './index.js';  // Asegúrate de que la ruta del archivo sea correcta
-let jokeScore: number = 0;
+let puntosBroma: number = 0;
 
 // Tu código...
 
 const url = "https://icanhazdadjoke.com/";
 
-async function get_joke(reportAcudits: objAcudit[]) {
+async function  obten_broma_prpal(reportAcudits: objAcudit[]) {
     try {
         const data = await fetch(url, {
             headers: {
@@ -34,12 +34,12 @@ function mostrar_chiste(joke: string) {
     }
 }
 
-function actualiza_array(broma: string, reportAcudits: objAcudit[]) {
+ function actualiza_array(broma: string, reportAcudits: objAcudit[]) {
     let fecha = new Date();
     let fechaISO = fecha.toISOString();
-    reportAcudits.push({ joke: broma, score: jokeScore, date: fechaISO });
+    reportAcudits.push({ joke: broma, score: puntosBroma, date: fechaISO });
     console.log(reportAcudits);
 }
 
 // Exporta las funciones necesarias
-export { get_joke, mostrar_chiste, actualiza_array };
+export {  obten_broma_prpal , mostrar_chiste, actualiza_array };
