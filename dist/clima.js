@@ -1,4 +1,6 @@
 "use strict";
+//import dotenv from 'dotenv';
+//dotenv.config();
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -9,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const clima = document.getElementById("clima");
-let TU_API_KEY = "f8f9fc72c29078e5fd330dc83c7ee6ca";
+const TU_API_KEY = "f8f9fc72c29078e5fd330dc83c7ee6ca";
 muestra_clima();
 function muestra_clima() {
     return __awaiter(this, void 0, void 0, function* () {
