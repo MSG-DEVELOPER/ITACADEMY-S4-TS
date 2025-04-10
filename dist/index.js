@@ -11,16 +11,13 @@ boton.addEventListener("click", dame_broma);
 botonTresPuntos.addEventListener("click", () => puntua_chiste(3));
 botonDosPuntos.addEventListener("click", () => puntua_chiste(2));
 botonUnPuntos.addEventListener("click", () => puntua_chiste(1));
-dame_broma();
+dame_broma(); //para que nada mas cargar la pagina te de una broma y luego a demanada con el boton
 function dame_broma() {
     let num = Math.floor(Math.random() * 2);
     if (num) {
-        // Llamar a la función de la API y pasar las variables necesarias
-        alert("broma prpal");
         obten_broma_prpal(reportAcudits);
     }
     else {
-        alert("jajajaj chuck");
         obten_chuck();
     }
 }
@@ -31,3 +28,5 @@ function puntua_chiste(nota) {
     reportAcudits[reportAcudits.length - 1].date = fechaISO;
     console.log(reportAcudits);
 }
+//recomiendo mirar primero el archivo chuck.ts que es mas simple ( chiste de la api de chuck) y luego joke.ts que 
+//ataca a la otra api , pero tiene mas funcionalidades...
