@@ -4,18 +4,14 @@
 
  const url = "https://api.chucknorris.io/jokes/random";
 
- //obten_chuck();
 
  export async function obten_chuck(){
 try{
-    alert("jajajaj dentro de la f de chuck");
 
  const data = await fetch(url);
  const chiste=await data.json();
-console.log(chiste.value);
-mostrar_chiste(chiste.value);
- actualiza_array(chiste.value, reportAcudits);
-//return chiste.value;
+mostrar_chiste(chiste.value); //esta funcion qu esta en joke.js es simple manipulacion del dom para mostrar el chiste
+ actualiza_array(chiste.value, reportAcudits);//pasamos el chiste y el array que los contiene , pasa "subirlo " al array, ahora que lo pienso podría haberlo echo aqui mismo no ?
 
  }catch(er){
     console.log("Chuck no está de humor... " , er);
