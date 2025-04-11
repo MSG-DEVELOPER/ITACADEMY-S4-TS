@@ -1,5 +1,5 @@
 
-
+import { uso_api } from "./API.js";
 
 const clima=document.getElementById("clima")!;
 const TU_API_KEY="f8f9fc72c29078e5fd330dc83c7ee6ca";
@@ -8,6 +8,9 @@ let latitude : number;
 let longitude : number;
 let latitudeFormateado:number;
 let longitudeFormateado:number;
+
+let url : string="";
+let apiClima = new uso_api(url);
 
 
 
@@ -34,7 +37,7 @@ function conseguir_ubi(){//esta f nos da las coordenadas de nuestra ubi para pas
          latitudeFormateado=Math.round(latitude * 100) / 100;
          longitude = position.coords.longitude;
          longitudeFormateado = Math.round(longitude * 100) / 100;
-       
+         apiClima.url=`https://api.openweathermap.org/data/2.5/weather?lat=${latitudeFormateado}&lon=${longitudeFormateado}&appid=${TU_API_KEY}&units=metric`
 
         resolve();
       }, function(error) {
@@ -48,16 +51,9 @@ function conseguir_ubi(){//esta f nos da las coordenadas de nuestra ubi para pas
 
 }
 
-  
-async function muestra_clima() {
-    
-    try{
-      console.log("en este moemnto el valor es" + latitudeFormateado);
-     const data = await fetch( `https://api.openweathermap.org/data/2.5/weather?lat=${latitudeFormateado}&lon=${longitudeFormateado}&appid=${TU_API_KEY}&units=metric`);
-    const response = await data.json();
-    clima.innerText=response.main.temp + " C";   
-    }catch(er){
-        console.warn("error en la conexión de la API del tiempo" , er)
-    }
+async function muestra_clima(){
+  let data = await apiClima.obten_datos();
+  clima.innerText=data.main.temp + " C";
 }
+
 

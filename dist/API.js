@@ -18,11 +18,11 @@ export class uso_api {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const data = yield fetch(this.url);
-                const chiste = yield data.json();
-                return chiste;
+                const dataEnJson = yield data.json();
+                return dataEnJson;
             }
             catch (er) {
-                console.log("Chuck no está de humor... ", er);
+                console.warn("No ha sido posible conectar con la API", er);
             }
         });
     }

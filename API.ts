@@ -14,11 +14,11 @@ export class uso_api{
             try{
             
              const data = await fetch(this.url);
-             const chiste=await data.json();
-            return chiste;
+             const dataEnJson=await data.json();
+            return dataEnJson;
 
              }catch(er){
-                console.log("Chuck no está de humor... " , er);
+                console.warn("No ha sido posible conectar con la API" , er);
             } 
 
     }
