@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-class uso_api {
+export class uso_api {
     constructor(url) {
         this.url = url;
     }
@@ -20,7 +19,7 @@ class uso_api {
             try {
                 const data = yield fetch(this.url);
                 const chiste = yield data.json();
-                console.log(chiste.value);
+                return chiste;
             }
             catch (er) {
                 console.log("Chuck no está de humor... ", er);
@@ -28,5 +27,3 @@ class uso_api {
         });
     }
 }
-let apiChuck = new uso_api("https://api.chucknorris.io/jokes/random");
-apiChuck.obten_datos();

@@ -10,17 +10,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import { mostrar_chiste } from "./joke.js";
 import { actualiza_array } from "./joke.js";
 import { reportAcudits } from "./index.js";
+import { uso_api } from "./API.js";
 const url = "https://api.chucknorris.io/jokes/random";
+let apiChuck = new uso_api(url);
 export function obten_chuck() {
     return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const data = yield fetch(url);
-            const chiste = yield data.json();
-            mostrar_chiste(chiste.value); //esta funcion qu esta en joke.js es simple manipulacion del dom para mostrar el chiste
-            actualiza_array(chiste.value, reportAcudits); //pasamos el chiste y el array que los contiene , pasa "subirlo " al array, ahora que lo pienso podría haberlo echo aqui mismo no ?
-        }
-        catch (er) {
-            console.log("Chuck no está de humor... ", er);
-        }
+        let chiste = yield apiChuck.obten_datos();
+        mostrar_chiste(chiste.value);
+        actualiza_array(chiste.value, reportAcudits);
     });
 }

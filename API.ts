@@ -1,4 +1,5 @@
-class uso_api{
+export class uso_api{
+
     url:string;
     constructor(url:string){
          this.url=url;
@@ -14,8 +15,8 @@ class uso_api{
             
              const data = await fetch(this.url);
              const chiste=await data.json();
-            console.log(chiste.value);
-            
+            return chiste;
+
              }catch(er){
                 console.log("Chuck no está de humor... " , er);
             } 
@@ -24,6 +25,3 @@ class uso_api{
 
 
 }
-
-let apiChuck = new uso_api("https://api.chucknorris.io/jokes/random");
-apiChuck.obten_datos();
