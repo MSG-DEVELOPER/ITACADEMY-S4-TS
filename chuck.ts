@@ -1,19 +1,19 @@
  import { mostrar_chiste } from "./joke.js";
  import { actualiza_array } from "./joke.js";
  import { reportAcudits } from "./index.js";
+ import { uso_api } from "./API.js";
 
- const url = "https://api.chucknorris.io/jokes/random";
+ const url :string = "https://api.chucknorris.io/jokes/random";
+ let apiChuck = new uso_api(url);
 
 
- export async function obten_chuck(){
-try{
 
- const data = await fetch(url);
- const chiste=await data.json();
-mostrar_chiste(chiste.value); //esta funcion qu esta en joke.js es simple manipulacion del dom para mostrar el chiste
- actualiza_array(chiste.value, reportAcudits);//pasamos el chiste y el array que los contiene , pasa "subirlo " al array, ahora que lo pienso podría haberlo echo aqui mismo no ?
+  export async function obten_chuck(){
+ let chiste=await apiChuck.obten_datos();
+ mostrar_chiste(chiste.value);
+ actualiza_array(chiste.value, reportAcudits)
+ }
 
- }catch(er){
-    console.log("Chuck no está de humor... " , er);
-} 
-}
+
+
+
