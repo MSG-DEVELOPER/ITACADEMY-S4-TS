@@ -11,13 +11,10 @@ export class uso_api {
     constructor(url) {
         this.url = url;
     }
-    muestra_url() {
-        console.log(this.url);
-    }
-    obten_datos() {
+    obten_datos(config) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const data = yield fetch(this.url);
+                const data = yield fetch(this.url, config);
                 const dataEnJson = yield data.json();
                 return dataEnJson;
             }

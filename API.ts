@@ -5,15 +5,13 @@ export class uso_api{
          this.url=url;
 
     }
-    muestra_url():void{
-        console.log(this.url);
-    }
+   
 
-    async obten_datos(){
+    async obten_datos(config?:RequestInit) {
         
             try{
             
-             const data = await fetch(this.url);
+             const data = await fetch(this.url,config);
              const dataEnJson=await data.json();
             return dataEnJson;
 

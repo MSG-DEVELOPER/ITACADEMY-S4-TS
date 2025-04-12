@@ -1,31 +1,28 @@
-// api.ts
 
-// api.ts
+import { objAcudit } from './index.js';  
+import { uso_api } from './API.js';
 
-// Esta es la URL de la API
-// api.ts
-import { objAcudit } from './index.js';  // Asegúrate de que la ruta del archivo sea correcta
+const config = {
+    headers: {
+      Accept: "application/json"
+    }
+  };
+
 let puntosBroma: number = 0;
-
-// Tu código...
-
 const url = "https://icanhazdadjoke.com/";
 
-async function  obten_broma_prpal(reportAcudits: objAcudit[]) {
-    try {
-        const data = await fetch(url, {
-            headers: {
-                'Accept': 'application/json'
-            }
-        });
 
-        const joke = await data.json();
-        mostrar_chiste(joke.joke);
-        actualiza_array(joke.joke, reportAcudits);
-    } catch (er) {
-        console.log("error en la conexión", er);
-    }
+let llamadaPrpal = new uso_api(url);
+
+
+
+
+async function obten_broma_prpal(reportAcudits:objAcudit[]){
+let data = await llamadaPrpal.obten_datos(config);
+mostrar_chiste(data.joke);
+actualiza_array(data.joke,reportAcudits);
 }
+
 
 function mostrar_chiste(joke: string) {
     const chiste = document.getElementById("chiste");
@@ -41,5 +38,6 @@ function mostrar_chiste(joke: string) {
     console.log(reportAcudits);
 }
 
-// Exporta las funciones necesarias
+
+
 export {  obten_broma_prpal , mostrar_chiste, actualiza_array };

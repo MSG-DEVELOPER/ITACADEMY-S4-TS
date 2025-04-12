@@ -14,9 +14,9 @@ let apiClima = new uso_api(url);
 
 
 
-mostrar_clima();
 
-async function mostrar_clima(){
+
+export async function mostrar_clima(){
 
 await conseguir_ubi();
 muestra_clima();
@@ -28,8 +28,7 @@ muestra_clima();
 
 
 
-function conseguir_ubi(){//esta f nos da las coordenadas de nuestra ubi para pasarsela a la api
-
+function conseguir_ubi(){
   return new Promise<void>((resolve, reject) => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {

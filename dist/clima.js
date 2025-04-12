@@ -16,13 +16,9 @@ let latitudeFormateado;
 let longitudeFormateado;
 let url = "";
 let apiClima = new uso_api(url);
-console.log("17");
-mostrar_clima();
-function mostrar_clima() {
+export function mostrar_clima() {
     return __awaiter(this, void 0, void 0, function* () {
-        console.log("21");
         yield conseguir_ubi();
-        //aqui podria poner lo de la url
         muestra_clima();
     });
 }
@@ -47,23 +43,7 @@ function conseguir_ubi() {
 }
 function muestra_clima() {
     return __awaiter(this, void 0, void 0, function* () {
-        console.log(apiClima.url);
         let data = yield apiClima.obten_datos();
         clima.innerText = data.main.temp + " C";
     });
 }
-// export async function obten_chuck(){
-//   let chiste=await apiChuck.obten_datos();
-//   mostrar_chiste(chiste.value);
-//   actualiza_array(chiste.value, reportAcudits)
-//   }
-// async function muestra_clima() {
-//     try{
-//       console.log("en este moemnto el valor es" + latitudeFormateado);
-//      const data = await fetch( `https://api.openweathermap.org/data/2.5/weather?lat=${latitudeFormateado}&lon=${longitudeFormateado}&appid=${TU_API_KEY}&units=metric`);
-//     const response = await data.json();
-//     clima.innerText=response.main.temp + " C";   
-//     }catch(er){
-//         console.warn("error en la conexión de la API del tiempo" , er)
-//     }
-// }
