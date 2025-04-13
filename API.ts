@@ -13,7 +13,7 @@ export class uso_api{
             
              const data = await fetch(this.url,config);
              const dataEnJson=await data.json();
-            return dataEnJson;
+             return dataEnJson;
 
              }catch(er){
                 console.warn("No ha sido posible conectar con la API" , er);

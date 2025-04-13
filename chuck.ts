@@ -8,10 +8,12 @@
 
 
 
-  export async function obten_chuck(){
- let chiste=await apiChuck.obten_datos();
- mostrar_chiste(chiste.value);
- actualiza_array(chiste.value, reportAcudits)
+export async function obten_chuck(){
+
+    let chiste=await apiChuck.obten_datos();
+    mostrar_chiste(chiste.value);
+    actualiza_array(chiste.value, reportAcudits);
+    
  }
 
 

@@ -44,6 +44,7 @@ function dame_broma() {
 }
 
 function puntua_chiste(nota: number) {
+    
     fecha = new Date();
     fechaISO = fecha.toISOString();
 
