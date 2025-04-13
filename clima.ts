@@ -8,33 +8,36 @@ let url : string=" ";
 let apiClima = new uso_api(url);
 
 
-
-
-
-
-
-
-
 export async function mostrar_clima(){
-try{
-url = await conseguir_ubi();
-apiClima.url = url;
-muestra_clima();
-}catch{
+
+  try{
+    url = await conseguir_ubi();
+    apiClima.url = url;
+    muestra_clima();
+  }catch(error){
+    console.error("Error al obtener el clima:", error);
+  }
 
 }
-
-}
-
-
-
-
-
-
 
 async function muestra_clima(){
+
   let data = await apiClima.obten_datos();
   clima.innerText=data.main.temp + " C";
+  
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

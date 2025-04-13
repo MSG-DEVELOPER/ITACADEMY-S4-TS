@@ -31,6 +31,8 @@ export function conseguir_ubi(){
   }
 
   function formatear_ubi(n:number){
+    
     return Math.round(n * 100) / 100;
-    }
+    
+ }
     
