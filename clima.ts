@@ -29,15 +29,3 @@ async function muestra_clima(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
