@@ -1,36 +1,54 @@
 
 import { uso_api } from "./API.js";
-import { conseguir_ubi } from "./geolocalizacion.js";
 
 const clima=document.getElementById("clima")!;
+const TU_API_KEY="f8f9fc72c29078e5fd330dc83c7ee6ca";
 
-let url : string=" ";
+let latitude : number;
+let longitude : number;
+let latitudeFormateado:number;
+let longitudeFormateado:number;
+
+let url : string="";
 let apiClima = new uso_api(url);
 
 
 
 
 
-
-
-
-
 export async function mostrar_clima(){
-try{
-url = await conseguir_ubi();
-apiClima.url = url;
+
+await conseguir_ubi();
 muestra_clima();
-}catch{
 
 }
 
+
+
+
+
+
+function conseguir_ubi(){
+  return new Promise<void>((resolve, reject) => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+         latitude  = position.coords.latitude;
+         latitudeFormateado=Math.round(latitude * 100) / 100;
+         longitude = position.coords.longitude;
+         longitudeFormateado = Math.round(longitude * 100) / 100;
+         apiClima.url=`https://api.openweathermap.org/data/2.5/weather?lat=${latitudeFormateado}&lon=${longitudeFormateado}&appid=${TU_API_KEY}&units=metric`
+
+        resolve();
+      }, function(error) {
+        reject("Error al obtener la ubicación: " + error.message);
+      });
+    } else {
+      console.warn("La geolocalización no está soportada por este navegador.");
+    }
+  });
+ 
+
 }
-
-
-
-
-
-
 
 async function muestra_clima(){
   let data = await apiClima.obten_datos();
